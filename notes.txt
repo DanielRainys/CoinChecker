@@ -1,0 +1,2 @@
+https://api.coindesk.com/v1/bpi/historical/close.json?currency=eur
+https://api.coindesk.com/v1/bpi/currentprice/EUR.json
