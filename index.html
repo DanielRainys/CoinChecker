@@ -26,6 +26,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
 
+      <script src="js/Script.js"></script>
+
   </head>
 
   <body id="page-top">
@@ -74,10 +76,16 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">We've got what you need!</h2>
+            <h2 class="section-heading text-white">Enter Euros to convert</h2>
             <hr class="light my-4">
+              <div>
+                <input id="numb">
 
+                <button type="button" onclick="getRate()">Submit</button>
 
+                <p></p>
+                <p id="result"></p>
+              </div>
             <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
           </div>
         </div>
