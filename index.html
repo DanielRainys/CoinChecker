@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>36</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/Icon.png" />
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,32 +24,34 @@
 
     <!-- Custom styles for this template -->
     <link href="css/creative.min.css" rel="stylesheet">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
 
       <script src="js/Script.js"></script>
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" onload="load()">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">CoinChecker</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger" href="#CheckPrice">Check Price</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+              <a class="nav-link js-scroll-trigger" href="#Chart">Chart</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="about.html">About</a>
             </li>
           </ul>
         </div>
@@ -60,56 +63,60 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
-              <strong>Big Auld Test</strong>
+              <strong>Coin Checker</strong>
             </h1>
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+            <p class="text-faded mb-5">CoinChecker Checks the market value of Bitcoin right now and over the past month.</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#CheckPrice">Find Out More</a>
           </div>
         </div>
       </div>
     </header>
 
-    <section class="bg-primary" id="about">
+    <section class="bg-primary" id="CheckPrice">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">Enter Euros to convert</h2>
+            <h2 class="section-heading text-white">Converter</h2>
             <hr class="light my-4">
               <div>
-                <input id="numb">
+                <p class="text-white">Enter the amount you want to convert in euro and we'll output how much Bitcion that's worth.</p>
 
-                <button type="button" onclick="getRate()">Submit</button>
+                <input id="numb" maxlength="20">
 
-                <p></p>
-                <p id="result"></p>
+                <button id="Submit" type="button" onclick="getRate()">Submit</button>
+                <button type="button" onclick="reset()">Reset</button>
+
+                <br>
+                <br>
+                <p id="result" class="text-white"></p>
               </div>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="#Chart">Check the Chart!</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="services">
+    <section id="Chart">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Test</h2>
+            <h2 class="section-heading">Market value over the last month</h2>
             <hr class="my-4">
           </div>
-          <div  class="chart-container" style="position: relative; height:40vh; width:80vw">
-            <canvas id="myChart" width="900" height="400"></canvas>
+          <div  class="chart-container" style="position: relative; height:80vh; width:80vw">
+            <canvas id="myChart" width="1100" height="800"></canvas>
             <script>
                 var ctx = document.getElementById("myChart");
                 var myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                        labels: dailyDate,
                         datasets: [{
-                            label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
+                            label: 'Price',
+                            data: dailyPrice,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
@@ -144,14 +151,6 @@
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="row">
-
-
-
-        </div>
-      </div>
-    </section>
 
     <section id="contact">
       <div class="container">
@@ -159,7 +158,7 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading">Let's Get In Touch!</h2>
             <hr class="my-4">
-            <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+            <p class="mb-5">To get in contact with team give us a call or send us an email and we will get back to you as soon as possible!</p>
           </div>
         </div>
         <div class="row">
@@ -170,7 +169,7 @@
           <div class="col-lg-4 mr-auto text-center">
             <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
             <p>
-              <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
+              <a href="mailto:your-email@your-domain.com">feedback@coinchecker.com</a>
             </p>
           </div>
         </div>

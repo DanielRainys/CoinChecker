@@ -1,3 +1,19 @@
 https://api.coindesk.com/v1/bpi/historical/close.json?currency=eur
 https://api.coindesk.com/v1/bpi/currentprice/EUR.json
 
+function getPrice()
+{
+    PriceRequest.open('GET', 'https://api.coindesk.com/v1/bpi/historical/close.json?currency=eur' , true);
+    PriceRequest.onload = function () {
+
+        var data = JSON.parse(this.response);
+        for (var i = 0; i < data.bpi.length; i++) {
+            PriceList.push(data.bpi[i]);
+            console.log("log: " + PriceList[i]);
+            console.log("characters list Size: "+PriceList.length);
+        }
+    };
+    PriceRequest.send();
+}
+
+31

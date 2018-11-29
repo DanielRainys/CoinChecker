@@ -317,3 +317,13 @@ header.masthead p {
   -webkit-box-shadow: 0 0 0 0.2rem #f2a900 !important;
   box-shadow: 0 0 0 0.2rem #f2a900 !important;
 }
+
+.WhiteTxt {
+  color: white;
+}
+
+.centreDiv {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
