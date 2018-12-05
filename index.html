@@ -88,7 +88,14 @@
 
                 <button id="Submit" type="button" onclick="getRate()">Submit</button>
                 <button type="button" onclick="reset()">Reset</button>
-
+                <script>
+                    var numb = document.getElementById("numb");
+                    numb.addEventListener("keydown", function (e) {
+                        if (e.keyCode === 13) {
+                            getRate()
+                        }
+                    });
+                </script>
                 <br>
                 <br>
                 <p id="result" class="text-white"></p>
@@ -106,8 +113,8 @@
             <h2 class="section-heading">Market value over the last month</h2>
             <hr class="my-4">
           </div>
-          <div  class="chart-container" style="position: relative; height:80vh; width:80vw">
-            <canvas id="myChart" width="1100" height="800"></canvas>
+          <div  class="chart-container" style="position: relative; height:60vh; width:95vw">
+            <canvas id="myChart" width="1100" height="500"></canvas>
             <script>
                 var ctx = document.getElementById("myChart");
                 var myChart = new Chart(ctx, {
@@ -152,7 +159,7 @@
         </div>
       </div>
 
-    <section id="contact">
+      <section id="contact">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">

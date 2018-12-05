@@ -4,13 +4,14 @@ function load() {
 
 function calc() {
     var x = document.getElementById("numb").value;
-    if (x > 0 && x < 99999999999999999999) {
+    try {
+        if(x == "")  throw "empty";
+        if(isNaN(x)) throw "not a number";
         var result = x / rate;
         document.getElementById("result").innerHTML = result + " " + "Bitcoins";
     }
-    else {
-        document.getElementById("result").innerHTML = "Invalid input";
-
+    catch(err) {
+        document.getElementById("result").innerHTML = "Input is " + err;
     }
 }
 
@@ -29,7 +30,7 @@ function getRate()
         var data = JSON.parse(this.response);
             var rateS = data.bpi.EUR.rate.replace(",", "");
             rate = parseFloat(rateS);
-            calc();
+            calc()
     };
     getRateRequest.send();
 }
@@ -65,10 +66,4 @@ function getPrice()
     priceRequest.send();
 }
 
-var numb = document.getElementById("numb");
 
-numb.addEventListener("keydown", function (e) {
-         if (e.keyCode === 13) {
-             calc()
-         }
-     });
