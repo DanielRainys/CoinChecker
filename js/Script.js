@@ -64,3 +64,11 @@ function getPrice()
     };
     priceRequest.send();
 }
+
+var numb = document.getElementById("numb");
+
+numb.addEventListener("keydown", function (e) {
+         if (e.keyCode === 13) {
+             calc()
+         }
+     });
